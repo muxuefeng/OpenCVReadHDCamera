@@ -7,12 +7,23 @@
 #include <opencv2/opencv.hpp>
 #include <iostream>
 #include <stdlib.h>
+#include <ctime>
+
 
 using namespace cv;
 using namespace std;
 
 static const int MAX_WIDTH_RESOLUTION = 7680;
 static const int MAX_HEIGHT_RESOLUTION = 4800;
+
+string getTime()
+{
+	time_t now_time;
+	time(&now_time);
+	char tmp[64];
+	strftime(tmp, sizeof(tmp), "%Y%m%d-%H%M%S", localtime(&now_time));
+	return tmp;
+}
 
 int main(int, char**)
 {
